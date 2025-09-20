@@ -1,0 +1,41 @@
+{
+  "name": "gemini-ai-chat",
+  "version": "1.0.0",
+  "description": "تطبيق ويب محادثة ذكاء اصطناعي مع Gemini Canvas وتسجيل الدخول عبر Google",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx live-server --port=3000",
+    "build": "echo 'Static files ready for deployment'",
+    "vercel-build": "echo 'Static files ready for deployment'",
+    "preview": "npx serve .",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "ai",
+    "chat",
+    "gemini",
+    "google",
+    "oauth",
+    "arabic",
+    "web-app",
+    "javascript"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/gemini-ai-chat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/gemini-ai-chat/issues"
+  },
+  "homepage": "https://github.com/yourusername/gemini-ai-chat#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

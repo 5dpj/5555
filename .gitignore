@@ -1,0 +1,59 @@
+# ملفات النظام
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ملفات IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ملفات Node.js (إذا تم إضافة Node.js لاحقاً)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ملفات البيئة
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ملفات التكوين الحساسة
+config.js
+
+# ملفات البناء
+dist/
+build/
+*.tgz
+*.tar.gz
+
+# ملفات السجلات
+logs/
+*.log
+
+# ملفات مؤقتة
+*.tmp
+*.temp
+.cache/
+
+# ملفات النسخ الاحتياطي
+*.bak
+*.backup
+*.old
+
+# ملفات الاختبار
+coverage/
+.nyc_output/
+
+# ملفات Git
+.git/
+.gitattributes
+
+# ملفات النظام المحلية
+*.local

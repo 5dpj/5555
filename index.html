@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محادثة ذكاء اصطناعي - Gemini AI Chat</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="app">
+        <!-- شاشة تسجيل الدخول -->
+        <div id="login-screen" class="screen">
+            <div class="login-background">
+                <div class="floating-shapes">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                    <div class="shape shape-4"></div>
+                </div>
+            </div>
+            <div class="login-container">
+                <div class="login-card">
+                    <div class="logo-section">
+                        <div class="logo-icon">
+                            <i class="fas fa-brain"></i>
+                            <div class="pulse-ring"></div>
+                        </div>
+                        <h1 class="logo-title">Gemini AI Chat</h1>
+                        <p class="logo-subtitle">محادثة ذكية مع الذكاء الاصطناعي</p>
+                        <div class="features">
+                            <div class="feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>آمن ومحمي</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-bolt"></i>
+                                <span>سريع وذكي</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>متجاوب</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="login-form">
+                        <button id="google-login-btn" class="google-login-btn">
+                            <div class="btn-content">
+                                <i class="fab fa-google"></i>
+                                <span>تسجيل الدخول عبر Google</span>
+                            </div>
+                            <div class="btn-shine"></div>
+                        </button>
+                        
+                        
+                        <div id="login-status" class="login-status"></div>
+                    </div>
+                    
+                    <div class="login-footer">
+                        <p>باستخدام هذا التطبيق، فإنك توافق على <a href="#">شروط الخدمة</a> و <a href="#">سياسة الخصوصية</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- شاشة المحادثة -->
+        <div id="chat-screen" class="screen hidden">
+            <div class="chat-container">
+                <!-- Header -->
+                <div class="chat-header">
+                    <div class="header-left">
+                        <div class="ai-avatar">
+                            <i class="fas fa-brain"></i>
+                            <div class="status-indicator online"></div>
+                        </div>
+                        <div class="ai-info">
+                            <h3>Gemini AI</h3>
+                            <span class="status-text">متصل الآن</span>
+                        </div>
+                    </div>
+                    
+                    <div class="header-center">
+                        <div class="chat-title">
+                            <h2>محادثة ذكية</h2>
+                            <p>اسأل أي شيء تريده</p>
+                        </div>
+                    </div>
+                    
+                    <div class="header-right">
+                        <div class="user-info">
+                            <img id="user-avatar" src="" alt="صورة المستخدم" class="user-avatar">
+                            <div class="user-details">
+                                <h4 id="user-name">المستخدم</h4>
+                                <span id="user-email">user@example.com</span>
+                            </div>
+                        </div>
+                        <div class="header-actions">
+                            <button id="settings-btn" class="action-btn" title="الإعدادات">
+                                <i class="fas fa-cog"></i>
+                            </button>
+                            <button id="logout-btn" class="action-btn logout" title="تسجيل الخروج">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Messages Area -->
+                <div class="chat-messages" id="chat-messages">
+                    <div class="welcome-message">
+                        <div class="welcome-content">
+                            <div class="welcome-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h3>مرحباً! أنا Gemini AI</h3>
+                            <p>مساعدك الذكي للذكاء الاصطناعي. يمكنني مساعدتك في:</p>
+                            <div class="capabilities">
+                                <div class="capability">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>الإجابة على الأسئلة</span>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-code"></i>
+                                    <span>كتابة الكود</span>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-pen"></i>
+                                    <span>الكتابة والإبداع</span>
+                                </div>
+                                <div class="capability">
+                                    <i class="fas fa-calculator"></i>
+                                    <span>حل المشاكل</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input Area -->
+                <div class="chat-input-container">
+                    <div class="input-wrapper">
+                        <div class="input-actions">
+                            <button class="input-action-btn" title="إرفاق ملف">
+                                <i class="fas fa-paperclip"></i>
+                            </button>
+                            <button class="input-action-btn" title="إرسال صورة">
+                                <i class="fas fa-image"></i>
+                            </button>
+                        </div>
+                        <div class="input-field">
+                            <textarea id="message-input" placeholder="اكتب رسالتك هنا..." rows="1"></textarea>
+                            <button id="send-btn" class="send-btn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="typing-indicator" id="typing-indicator">
+                        <div class="typing-content">
+                            <div class="typing-avatar">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span class="typing-text">Gemini AI يكتب...</span>
+                        </div>
+                    </div>
+                    
+                    <div class="input-footer">
+                        <div class="suggestions">
+                            <button class="suggestion-btn">اقترح لي موضوعاً للحديث</button>
+                            <button class="suggestion-btn">كيف يمكنني تحسين مهاراتي؟</button>
+                            <button class="suggestion-btn">أخبرني قصة</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- نافذة Gemini Canvas -->
+        <div id="gemini-canvas" class="gemini-canvas hidden">
+            <div class="canvas-header">
+                <h3>Gemini Canvas</h3>
+                <button id="close-canvas-btn" class="close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <iframe id="gemini-iframe" src="https://gemini.google.com/canvas?utm_source=chatgpt.com" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <!-- Google OAuth Script -->
+    <!-- Google OAuth 2.0 Configuration -->
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // التحقق من تحميل التطبيق
+        window.addEventListener('load', function() {
+            console.log('Application loaded successfully');
+            console.log('GOOGLE_CONFIG available:', typeof window.GOOGLE_CONFIG !== 'undefined');
+        });
+    </script>
+</body>
+</html>
